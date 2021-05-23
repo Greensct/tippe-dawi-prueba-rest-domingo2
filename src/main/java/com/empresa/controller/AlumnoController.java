@@ -69,5 +69,12 @@ public class AlumnoController {
 			return ResponseEntity.ok(optAlumno.get());
 		}
 	}
+	
+	@GetMapping("/{dni}")
+	public ResponseEntity<List<Alumno>> listaporDni(@PathVariable("dni") String dni) {
+		System.out.println(">>> inicio >>> lsitar por Dni " + dni);
+		List<Alumno> lista = service.listaPorDni(dni);
+		return ResponseEntity.ok(lista);
+	}
 
 }
